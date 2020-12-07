@@ -63,7 +63,7 @@ router.post("/register",function(req,res){
 				
 				});
 				var mailOptions={
-					from:"learn.with.kumar.mumbai@gmail.com",
+					from:"your email id",
 					to:req.body.email,
 					subject:"Registration on Yelpcamp",
 					text:"Hi "+req.body.username+",\nWelcome to YelpCamp"
@@ -190,7 +190,7 @@ router.post("/forgot",function(req,res,next){
 			//console.log("the token is "+typeof(token.resetPasswordToken));
 			var mailOptions={
 				to: req.body.email,
-				from: 'learn.with.kumar.mumbai@gmail.com',
+				from: 'your email id',
 				subject:"YelpCamp Password Reset",
 				text:"Hi "+user.fullname+",\nClick on the below link to reset your password\n\n"+
 				"https://yelpcampmumbai.run-ap-south1.goorm.io/reset/"+user.resetPasswordToken
@@ -257,14 +257,14 @@ router.post("/reset/:token",function(req,res){
 			var Transport=nodemailer.createTransport({
 				service:"gmail",
 				auth:{
-					user:'learn.with.kumar.mumbai@gmail.com',
-					pass:'Kumar1234'
+					user:'your email id',
+					pass:'#####'
 				}
 			});
 			console.log("password user is"+user);
 			var mailOptions={
 				to:user.email,
-				from:'learn.with.kumar.mumbai@gmail.com',
+				from:'your email id',
 				subject:'Security Alert',
 				text:'The password for your YelpCamp Account was changed recently.'
 			};
