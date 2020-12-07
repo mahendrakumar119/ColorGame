@@ -19,8 +19,8 @@ var indexRoutes     =require('./routes/index');
 //seedDB(); //seed the database
 //flash packages for showing messages
 //connecting to yelp_camp database or mongodb
-mongoose.connect("mongodb://mahendra:dhruvsakli@yelpcamp-shard-00-00.xpyj9.mongodb.net:27017,yelpcamp-shard-00-01.xpyj9.mongodb.net:27017,yelpcamp-shard-00-02.xpyj9.mongodb.net:27017/yelpcamp?ssl=true&replicaSet=atlas-13mkor-shard-0&authSource=admin&retryWrites=true&w=majority",{useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify: false,useCreateIndex: true});
-//mongoose.connect("mongodb://localhost:27017/yelp_camp",{useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify: false});
+
+mongoose.connect("mongodb://localhost:27017/yelp_camp",{useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify: false});
 
 //bodyParser is used to get and send, form data and to send data respectively 
 app.use(bodyParser.urlencoded({extended:true}));
