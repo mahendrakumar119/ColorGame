@@ -1,0 +1,53 @@
+<%- include("../partials/header") %>
+<script>
+	$(document).ready(function(){
+		$('#comment1_form').click(function(e){
+			e.preventDefault();
+			var comment=$('#c').val();
+			$('.val').remove();
+			if(comment.length<1){
+				$('#c').after('<p class="val">Please enter comment</p>');
+			}
+			else{
+				$('#comment_form').submit();
+			}
+		});
+	});
+</script>
+
+<div class="container">
+	
+		
+		<div class="container form1">
+			<div class="header">
+				
+				Add Comment to <span><%= camp.name%></span>	
+				
+			</div> 
+			<br>
+			<form id="comment_form" action="/campground/<%= camp._id %>/comments" method="POST">
+				
+				<div class="form-group form-group-lg">
+					<label for="c">Comment</label>
+					<input id="c" class="form-control" type="text" placeholder="text" name="comment[text]">
+				</div>
+				<!-- <div class="form-group">
+					<input class="form-control" type="text" value="" placeholder="author" name="comment[author]">
+				</div> -->
+		
+				<div class="form-group form-group-lg">
+					<button id="comment1_form" class="btn btn-default btn-lg btn-block btn-success" type="submit">
+						Submit!
+					</button>
+				</div>
+		
+			</form>
+			<a href="/campground/<%=camp._id%>" class="pull-right">Go back!</a>
+		</div>
+		
+	
+</div>
+	
+
+
+<%- include("../partials/footer1") %>

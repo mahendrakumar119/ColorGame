@@ -1,0 +1,79 @@
+<%- include("./partials/header") %>
+<script>
+	$(document).ready(function(){
+		$('#l_and_s_btn').click(function(e){
+			e.preventDefault();
+			var username=$('#u').val();
+			var fullname=$('#f').val();
+			var email=$('#e').val();
+			var password=$('#p').val();
+			$(".val").remove();
+			if(username.length<1){
+				$('#u').after('<p class="val">Required</p>');
+			}
+			if(fullname.length<1){
+				$('#f').after('<p class="val">Required</p>');
+			}
+			if(email.length<1){
+				$('#e').after('<p class="val">Required</p>');
+			}
+			if(password.length<1){
+				$('#p').after('<p class="val">Please enter password in given format</p>');
+			}
+			else{
+				$('#RegForm').submit();
+			}
+		
+		});
+		
+	});
+</script>
+
+<div class="container">
+	
+		
+		<div class="container form1">
+			<div class="header">
+				
+					Signup Portal
+				
+			</div> 
+			<br>
+			<form id="RegForm" action="/register" method="POST">
+				<div class="form-group form-group-lg">
+					<label for="u">Username</label>
+					<input id="u" class="form-control" type="text" placeholder="username" name="username">
+				</div>
+				<div class="form-group form-group-lg">
+					<label for="f">Fullname</label>
+					<input id="f" class="form-control" type="text" placeholder="fullname" name="fullname">
+				</div>
+				<div class="form-group form-group-lg">
+					<label for="e">Email-Id</label>
+					<input id="e" class="form-control" type="email" placeholder="email" name="email">
+				</div>
+				<div class="form-group form-group-lg">
+					<label for="p">Password</label>
+					<input id="p" class="form-control" type="password" placeholder="password" name="password" aria-describedby="passwordHelpBlock" minlength="5" maxlength="10">
+					<small id="passwordHelpBlock" class="form-text text-muted" style="color:black;">Your password must be 5-10 characters long,contains number,letters,special charcters and must not contain spaces.</small>
+				</div>
+				<div class="form-group form-group-lg">
+					<label for="a">Admin code</label>
+					<input id="a" class="form-control" type="password" placeholder="admin code,if u r admin?" name="secretcode">
+				</div>
+				<!-- <div class="form-group form-group-lg">
+					<label for="ph">Email-Id</label>
+					<input id="ph" class="form-control" type="file" placeholder="choose file" name="photo">
+				</div> -->
+				<div class="form-group form-group-lg">
+					<button id="l_and_s_btn" class="form-control btn btn-success" type="submit">
+						Register
+					</button>
+				</div>
+			</form>
+		</div>
+	
+	
+</div>
+
+<%- include("./partials/footer") %>

@@ -1,0 +1,42 @@
+<%- include("partials/header");%>
+	
+	<div  class="container" style="width:100%;">
+		<div class="table-responsive">
+			<table border="1">
+	<thead>
+		<tr>
+			<th>User_Id</th>
+			<th>Username</th>
+			<th>Full Name</th>
+			<th>Email-id</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% users.forEach(function(users){ %>
+		<tr>
+			<td><%=users._id%></td>
+			<td><%=users.username%></td>
+			<td><%=users.fullname%></td>
+			<td><%=users.email%></td>
+			<td>
+				<form action="/user/<%=users._id%>?_method=DELETE" method="POST">
+							<button>
+								<span class="admin_delete"><i class="fa fa-trash"></i></span>
+							</button>
+						</form>
+				</td>
+		</tr>
+	<% });%>
+	
+		
+	</tbody>
+		</div>
+	
+</table>
+	
+</div>
+
+
+
+<%- include("partials/footer1");%>

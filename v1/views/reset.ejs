@@ -1,0 +1,50 @@
+<%- include("partials/header");%>
+<script>
+	$(document).ready(function(){
+		$('#reset_password').click(function(e){
+			e.preventDefault();
+			var newpass=$('#p').val();
+			var confirmpass=$('#c').val();
+			$('.val').remove();
+			if(newpass.length<1){
+				$('#p').after('<p class="val">Please enter new password</p>');
+			}
+			if(confirmpass.length<1){
+				$('#c').after('<p class="val">Please enter confirm password</p>');
+			}
+			else{
+				$('#reset_form').submit();
+			}
+		});
+	});
+</script>
+<div class="container">
+	
+		
+		<div class="form1">
+			<div class="header">
+				
+					Reset Password Portal
+				
+			</div> 
+			<br>
+			<form id="reset_form" action="/reset/<%=token%>" method="POST">
+				<div class="form-group form-group-lg">
+					<label for="p">New Password</label>
+					<input id="p" class="form-control" type="password" placeholder="Enter New Password" name="newpassword" required>
+				</div>
+				<div class="form-group form-group-lg">
+					<label for="c">Confirm Password</label>
+					<input id="c" class="form-control" type="password" placeholder="Confirm New Password" name="confirmpassword" required>
+				</div>
+				<div class="form-group form-group-lg">
+					<button id="reset_password" class="form-control btn btn-success" >
+						Reset
+					</button>
+				</div>
+			</form>
+		</div>
+	
+</div>
+
+<%- include("partials/footer1");%>
